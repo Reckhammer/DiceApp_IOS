@@ -28,7 +28,8 @@ struct ContentView: View
             {
                 Spacer();
                 
-                Text("Joshua Rechkemmer");
+                Text("Joshua Rechkemmer")
+                    .font(.title);
                 
                 Spacer();
                 
