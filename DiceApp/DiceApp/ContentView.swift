@@ -11,48 +11,70 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View 
+{
     
-    @State var diceNumber = 1
+    @State var dice1Number = 1;
+    @State var dice2Number = 1;
     
-    var body: some View {
-        ZStack {
+    @State var diceTotal = 2;
+    
+    var body: some View
+    {
+        ZStack 
+        {
             
-            VStack {
-                Spacer()
-                Text("insert you name")
-                Spacer()
-                Text("Insert any image here")
-                Spacer()
-                HStack {
-                    DiceView(n: diceNumber)
-                    Text("Insert one more dice here")
+            VStack 
+            {
+                Spacer();
+                
+                Text("Joshua Rechkemmer");
+                
+                Spacer();
+                
+                Image("kpop")
+                    .padding();
+                
+                Spacer();
+                
+                HStack
+                {
+                    DiceView(n: dice1Number);
+                    DiceView(n: dice2Number);
                 }
-                .padding(.horizontal)
-                Spacer()
-                Button(action: {
-                    self.diceNumber = Int.random(in: 1...6)
-                   
-                }) {
+                .padding(.horizontal);
+                
+                Spacer();
+                
+                Button(action:
+                        {
+                    self.dice1Number = Int.random(in: 1...6);
+                    self.dice2Number = Int.random(in:1...6);
+                    self.diceTotal = self.dice1Number + self.dice2Number;
+                        })
+                {
                     Text("Roll")
                         .font(.system(size: 50))
                         .fontWeight(.heavy)
                         .foregroundColor(.white)
-                        .padding(.horizontal)
+                        .padding(.horizontal);
                     
                 }
-                .background(Color.blue)
-                Text(" when click roll button, two dice should roll")
+                .background(Color.teal);
+                
+                Text("Dice Total: \(diceTotal)");
             }
         }
     }
 }
 
-struct DiceView: View {
+struct DiceView: View 
+{
     
     let n: Int
     
-    var body: some View {
+    var body: some View 
+    {
         Image("dice\(n)")
             .resizable()
             .aspectRatio(1, contentMode: .fit)
@@ -61,8 +83,10 @@ struct DiceView: View {
 }
 
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
+struct ContentView_Previews: PreviewProvider 
+{
+    static var previews: some View 
+    {
         ContentView()
     }
 }
